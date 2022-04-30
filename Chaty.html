@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;900&display=swap" rel="stylesheet">
+    <style>
+
+        *{
+            padding: 0px;
+            margin: 0px;
+            font-family: 'Nunito',sans-serif;
+        }
+        .full{
+            width: 100%;
+            height: 100%;
+            background-color: #1ca7ec;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+
+        #allchat{
+            width: 100%;
+            height: 80%;
+            background-color: white;
+            position: fixed;
+            top: 22%;
+            left: 0%;
+            overflow: scroll;
+            border-radius: 2.5vh;
+            
+        }
+
+        ::-webkit-scrollbar{
+            display: none;
+        }
+         
+        #sendinput{
+            width: 99%;
+            height: 10vh;
+            background-color:whitesmoke;
+            color: black;
+            position: fixed;
+            
+            left: 0.5%;
+            border-radius: 2vh;
+            top: 91%;
+            outline: none;
+            border: none;
+            font-weight: bold;
+
+        }
+
+        #sendinput::placeholder{
+            font-weight: bold;
+            position: relative;
+            left: 5vh;
+        }
+        .send{
+            width: 5vh;
+            height: 5vh;
+            background-color: #e55;
+            border-radius: 5vh;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            display: flex;
+            left: 80%;
+            top: 93%;
+            font-size: 1.5vh;
+            position: fixed;
+            color: white;
+        }
+
+        .messagecan{
+            width: 75%;
+            height: auto;
+            background-color: white;
+            margin-top: 8vh;
+            position: relative;
+            top: 5vh;
+            border-radius: 1vh;
+            display: flex;
+            align-items: center;
+            overflow: scroll;
+           
+        }
+
+        #us{
+            position: relative;
+            left: 5vh;
+            font-size: 2vh;
+        }
+        #mess{
+            position: relative;
+            left: 5vh;
+            font-size: 2vh;
+        }
+        #tm{
+            
+            position: absolute;
+            left: 120%;
+            top: 30%;
+        }
+
+        .full h4{
+            position: absolute;
+            color: white;
+            top: 5%;
+            left: 5%;
+        }
+        .full button{
+            width: 14vh;
+            height: 5vh;
+            background-color: #e55;
+            outline: none;
+            border: none;
+            color: white;
+            position: absolute;
+            top: 14%;
+            left: 5%;
+            font-weight: bold;
+            border-radius: 1vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="full">
+        <h4>Lol Just A Normal Chat App<br>Enjoy!</h4>
+        <button onclick="com()">Stickers</button>
+        <ul id="allchat">
+            <input id="sendinput"placeholder='Enter Your Message Here'>
+<div class="send"onclick='se()'>
+    <h1>></h1>
+</div>
+        </ul>
+    </div>
+
+    <script>
+        const firebaseConfig = {
+    apiKey: "AIzaSyArqyBgiVAtXYddNQD6liOA8CdPYCTv6vQ",
+    authDomain: "chat-app-b9a52.firebaseapp.com",
+    projectId: "chat-app-b9a52",
+    storageBucket: "chat-app-b9a52.appspot.com",
+    messagingSenderId: "920846348221",
+    appId: "1:920846348221:web:ee4bdb18de1d2a40a0acd4",
+    measurementId: "G-587W6XL6T4"
+  };
+  firebase.initializeApp(firebaseConfig);
+
+var user=prompt('Whats Your Name')
+
+function se(){
+    var today = new Date();
+var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+if(document.getElementById('sendinput').value=='-troll'){
+   
+   
+    var message=document.getElementById('sendinput').value
+var username=user
+    
+  firebase.database().ref('ggchat').push().set({
+'username':username+':',
+'message':'<img style="width:20vh;height:20vh;position:relative;left:10vh;" src="https://c.tenor.com/_bTaLmoLSc4AAAAd/troll-pilled.gif">',
+'time':date
+
+
+  })
+
+   
+}
+if(document.getElementById('sendinput').value=='-sorry'){
+   
+   
+   var message=document.getElementById('sendinput').value
+var username=user
+   
+ firebase.database().ref('ggchat').push().set({
+'username':username+':',
+'message':'<img style="width:20vh;height:20vh;position:relative;left:10vh;" src="https://media3.giphy.com/media/3ohA2ZD9EkeK2AyfdK/200.gif">',
+'time':date
+
+
+ })
+
+  
+}
+
+if(document.getElementById('sendinput').value=='-slap'){
+   
+   
+   var message=document.getElementById('sendinput').value
+var username=user
+   
+ firebase.database().ref('ggchat').push().set({
+'username':username+':',
+'message':'<img style="width:20vh;height:20vh;position:relative;left:10vh;" src="https://c.tenor.com/clPXsR7DFm8AAAAC/chris-rock-slap-will-smith-slap.gif">',
+'time':date
+
+
+ })
+
+  
+}
+if(document.getElementById('sendinput').value=='-hello'){
+   
+   
+   var message=document.getElementById('sendinput').value
+var username=user
+   
+ firebase.database().ref('ggchat').push().set({
+'username':username+':',
+'message':'<img style="width:20vh;height:20vh;position:relative;left:10vh;" src="https://c.tenor.com/fFWcjOYqpWMAAAAM/jasgagger-jason.gif">',
+'time':date
+
+
+ })
+
+
+  
+}
+
+if(document.getElementById('sendinput').value=='-bye'){
+   
+   
+   var message=document.getElementById('sendinput').value
+var username=user
+   
+ firebase.database().ref('ggchat').push().set({
+'username':username+':',
+'message':'<img style="width:20vh;height:20vh;position:relative;left:10vh;" src="https://c.tenor.com/I6bSd_xNoc0AAAAM/hooray-its-weekend.gif">',
+'time':date
+
+
+ })
+
+
+  
+}
+
+if(document.getElementById('sendinput').value=='-lol'){
+   
+   
+   var message=document.getElementById('sendinput').value
+var username=user
+   
+ firebase.database().ref('ggchat').push().set({
+'username':username+':',
+'message':'<img style="width:20vh;height:20vh;position:relative;left:10vh;" src="https://media0.giphy.com/media/AFYfA31DZoiug31eky/200.gif">',
+'time':date
+
+
+ })
+
+
+  
+}
+
+if(document.getElementById('sendinput').value=='-roast'){
+   
+   
+   var message=document.getElementById('sendinput').value
+var username=user
+   
+ firebase.database().ref('ggchat').push().set({
+'username':username+':',
+'message':'<img style="width:20vh;height:20vh;position:relative;left:10vh;" src="https://c.tenor.com/f8YmpuCCXJcAAAAM/roasted-oh.gif">',
+'time':date
+
+
+ })
+
+
+  
+}
+
+if(document.getElementById('sendinput').value=='-vip/power'){
+   
+   
+  alert('Lol')
+
+
+  
+}
+
+
+  
+
+var message=document.getElementById('sendinput').value
+var username=user
+if(document.getElementById('sendinput').value.length<=1){
+
+
+}else{
+    firebase.database().ref('ggchat').push().set({
+    'username':username+':',
+    'message':message,
+    'time':date
+})
+
+}
+}
+
+
+
+ 
+
+
+
+firebase.database().ref("ggchat").on("child_added", function(snapshot) {
+var html = `
+     
+
+      
+<center><div class='messagecan'>
+    <h5 id='us'>${snapshot.val().username}</h5>
+    <h5 id='mess'>${snapshot.val().message}</h5>
+    <h6 id='tm'>${snapshot.val().time}</h6>
+    </div></center>
+
+
+      `
+
+var places = document.getElementById("allchat")
+places.innerHTML = html + places.innerHTML;
+
+   })
+function com(){
+    alert('Hello If You Want To Send Stickers Then Enter -troll for troll gif,-hello for hello gif,-slap for slap gif,-bye for bye gif-sorry for sorry gif.')
+}
+    </script>
+</body>
+</html>
